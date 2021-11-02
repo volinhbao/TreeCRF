@@ -35,7 +35,9 @@ from tensorboardX import SummaryWriter
 from transformers import AdamW, get_linear_schedule_with_warmup
 
 from transformers import (WEIGHTS_NAME, BertConfig,
-                          BertForTokenClassification, BertTokenizer)
+                          BertForTokenClassification, BertTokenizer,
+                          XLMRobertaConfig, XLMRobertaForTokenClassification,
+                          XLMRobertaTokenizer)
 
 from utils_ner import Processor, eval
 
@@ -180,7 +182,9 @@ logging.root.addHandler(file_handler)
 logger = logging.getLogger(__name__)
 
 MODEL_CLASSES = {
-    'bert': (BertConfig, BertForTokenClassification, BertTokenizer)
+    'bert': (BertConfig, BertForTokenClassification, BertTokenizer),
+    'xlmr': (XLMRobertaConfig, XLMRobertaForTokenClassification,
+                          XLMRobertaTokenizer)
 }
 
 best_F = 0
